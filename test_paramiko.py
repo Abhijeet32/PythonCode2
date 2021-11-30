@@ -1,7 +1,6 @@
 import paramiko
-import pytest
 
-host = "192.168.0.115"
+host = "192.168.0.108"
 port = 22
 username = "abhijeet"
 password = "123"
@@ -18,7 +17,7 @@ ssh.connect(host, port, username, password)
 def runSsh(cmd):
     userName = "abhijeet"
     password = "123"
-    hostname = "192.168.0.115"
+    hostname = "192.168.0.108"
     try:
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -37,22 +36,6 @@ def runSsh(cmd):
     except paramiko.AuthenticationException:
         print("Authentication failed, please verify your credentials: %s")
 
-'''def test_memory_util():
-
+def test_memory_util():
     memoryUtil = float(runSsh(command))
-    print(memoryUtil)
-
-    assert memoryUtil > 90'''
-
-memoryUtilization = runSsh(command)
-print("The Memory Utilization is : ", memoryUtilization)
-diskUtil = runSsh(command1)
-print("The Disk Utilized is : \n", diskUtil)
-fileList = runSsh(command2)
-print("The Files present are : \n", fileList)
-cpuinfo = runSsh(command3)
-print("The CPU Information is : \n", cpuinfo)
-
-'''@pytest
-def test_title(self):
-    assert self.memoryUtil > "90"'''
+    assert memoryUtil < 90
