@@ -37,12 +37,12 @@ def runSsh(cmd):
     except paramiko.AuthenticationException:
         print("Authentication failed, please verify your credentials: %s")
 
-def test_memory_util():
+'''def test_memory_util():
 
     memoryUtil = float(runSsh(command))
     print(memoryUtil)
 
-    assert memoryUtil > 90
+    assert memoryUtil > 90'''
 
 memoryUtilization = runSsh(command)
 print("The Memory Utilization is : ", memoryUtilization)
